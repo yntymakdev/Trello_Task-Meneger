@@ -41,7 +41,7 @@ const MarketingPage = () => {
       </div>
       <br />
       <Button>
-        <Link href="/sign-up">Get task tastify for free</Link>
+        <Link href="/sign-in">Get task tastify for free</Link>
       </Button>
     </div>
   );
