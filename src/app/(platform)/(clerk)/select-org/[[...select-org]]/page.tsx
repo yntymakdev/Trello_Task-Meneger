@@ -4,7 +4,11 @@ import React from "react";
 export default function CreateOrganizationPage() {
   return (
     <div>
-      <OrganizationList />
+      <OrganizationList
+        hidePersonal
+        afterSelectOrganizationUrl={"/organization/:id"}
+        afterCreateOrganizationUrl={"/organization/:id"}
+      />
     </div>
   );
 }
