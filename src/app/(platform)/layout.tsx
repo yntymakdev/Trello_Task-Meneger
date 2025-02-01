@@ -6,7 +6,7 @@ interface PlatformLayoutProps {
 }
 
 const PlatformLayout: React.FC<PlatformLayoutProps> = ({ children }) => {
-  return <ClerkProviderё>{children}</ClerkProviderё>;
+  return <ClerkProvider>{children}</ClerkProvider>;
 };
 
 export default PlatformLayout;
