@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Medal, Weight } from "lucide-react";
 import localFont from "next/font/local";
 import { cn } from "@/lib/utils";
+import { Poppins } from "next/font/google";
 
 const headingFont = localFont({
   src: "../fonts/GeistMonoVF.woff",
