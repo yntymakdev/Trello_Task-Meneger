@@ -18,7 +18,6 @@ const Navbar = () => {
           <Plus className="h-4 w-4" />
         </Button>
       </div>
-      {/* Правый блок с переключателем и кнопкой пользователя */}
       <div className="flex items-center gap-x-2">
         <OrganizationSwitcher
           hidePersonal
