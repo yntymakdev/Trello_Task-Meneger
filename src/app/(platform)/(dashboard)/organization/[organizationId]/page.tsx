@@ -1,7 +1,7 @@
 import React from "react";
 
 const OrganizationId = () => {
-  return <div></div>;
+  return <div>OrganPage</div>;
 };
 
 export default OrganizationId;
