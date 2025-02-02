@@ -1,3 +1,5 @@
+import { Accordion, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
 import React from "react";
 
 export type Organization{
@@ -14,7 +16,13 @@ interface NavItemProps {
   onExpand: (id: string) => void;
 }
 const NavItem = ({ isExpanded, isActive, organization, onExpand }:  NavItemProps) => {
-  return <div>Nav Item</div>;
+  return <AccordionItem value={organization.id} className="border-none">
+<AccordionTrigger onClick={() => onExpand(organization.id)} className={cn("flex items-center  gap-x-2 p-1.5 text-neutral-700 rounded-md hover:bg-neutral-500/10 transition text-start no-underline hover:no-underline", isActive &&  !isExpanded && "bg-sky-500/10 text-sky-700")}>
+
+<div className=""></div>
+</AccordionTrigger>
+</AccordionItem>
+
 };
 
 export default NavItem;
