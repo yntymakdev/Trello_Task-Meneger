@@ -6,7 +6,6 @@ export default function SettingsPage() {
   const [organizationId, setOrganizationId] = useState<string | null>(null);
 
   useEffect(() => {
-    // Читаем значение из cookies
     const cookieValue = document.cookie
       .split("; ")
       .find((row) => row.startsWith("organizationId="))
