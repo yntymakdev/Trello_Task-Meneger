@@ -3,6 +3,7 @@ import { Button } from "@/app/shared/components/styles/ui/Button";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Plus } from "lucide-react";
 import React from "react";
+import MobileSideBar from "./mobile-sidebar";
 
 const Navbar = () => {
   return (
