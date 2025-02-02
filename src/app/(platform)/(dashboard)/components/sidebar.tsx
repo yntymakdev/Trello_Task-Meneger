@@ -41,10 +41,12 @@ const SideBar = ({ storageKey = "t-sidebar-state" }: SideBarProps) => {
 
   return (
     <div className="flex flex-col font-medium text-xs mb-1">
-      <span className="pl-4">WorkSpaces</span>
+      <span style={{ position: "relative", top: "20px" }} className="pl-3  ">
+        WorkSpaces
+      </span>
       <Button asChild type="button" size="icon" variant="ghost" className="ml-auto">
         <Link href="/select-org">
-          <Plus className="h-4 w-4" />
+          <Plus className="h-4 w-4 mb-2" />
         </Link>
       </Button>
       <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">

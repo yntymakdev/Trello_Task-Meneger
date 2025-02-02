@@ -7,9 +7,9 @@ import MobileSideBar from "./mobile-sidebar";
 
 const Navbar = () => {
   return (
-    <nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm bg-white flex items-center ">
-      <MobileSideBar />
+    <nav className="fixed z-50 top-0 px-4 w-full h-14 border-b shadow-sm bg-white flex items-center justify-between">
       <div className="flex items-center gap-x-4">
+        <MobileSideBar />
         <div className="hidden md:flex">
           <Logo />
         </div>
@@ -20,6 +20,7 @@ const Navbar = () => {
           <Plus className="h-4 w-4" />
         </Button>
       </div>
+
       <div className="flex items-center gap-x-2">
         <OrganizationSwitcher
           hidePersonal
