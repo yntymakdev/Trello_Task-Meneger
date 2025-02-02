@@ -1,5 +1,6 @@
 "use server";
 import { db } from "@/lib/db";
+import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
 const CreateBoard = z.object({
@@ -7,10 +8,12 @@ const CreateBoard = z.object({
 });
 
 export async function create(formData: FormData) {
-  const title = formData.get("title") as string;
-
-  title: formData.get("title");
+  const { title } = CreateBoard.parse({
+    title: formData.get("title"),
+  });
   await db.board.create({
     data: { title },
   });
+
+  revalidatePath("organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er");
 }

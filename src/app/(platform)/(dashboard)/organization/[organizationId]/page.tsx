@@ -3,18 +3,21 @@ import { create } from "../../../../../../action/creat-boart";
 import { db } from "@/lib/db";
 
 const OrganizationId = async () => {
-  const boards = await db.board.findMany();
+  const board = await db.board.findMany();
 
   return (
-    <form action={create}>
-      <input id="title" name="title" required placeholder="Enter a board title" className="border-black border p-1" />
-      <Button>as</Button>
-    </form>
-<div className="space-y-2">
-
-  
-</div>
-
+    <>
+      <div className="flex flex-col  space-y-4"></div>
+      <form action={create}>
+        <input id="title" name="title" required placeholder="Enter a board title" className="border-black border p-1" />
+        <Button>Добавить</Button>
+      </form>
+      <div className="space-y-2">
+        {board.map((board) => (
+          <div key={board.id}>Board name: {board.title}</div>
+        ))}
+      </div>
+    </>
   );
 };
 
