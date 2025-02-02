@@ -1,7 +1,9 @@
+"use client";
 import { Accordion, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
-import { Layout } from "lucide-react";
+import { CreditCard, Layout } from "lucide-react";
 import Image from "next/image";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import React from "react";
 
 export type Organization = {
@@ -17,13 +19,32 @@ interface NavItemProps {
   onExpand: (id: string) => void;
 }
 const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavItemProps) => {
+  const router = useRouter();
+  const pathname = usePathname();
   const routes = [
     {
       label: "Boards",
-      icon: <Layout className="h-4 w-4 mr-2">,
-      href: "Boards",
+      icon: <Layout className="h-4 w-4 mr-2" />,
+      href: `/organization/${organization.id}`,
+    },
+    {
+      label: "Activity",
+      icon: <Layout className="h-4 w-4 mr-2" />,
+      href: `/organization/${organization.id}/activity`,
+    },
+    {
+      label: "Settings",
+      icon: <Layout className="h-4 w-4 mr-2" />,
+      href: `/organization/${organization.id}/settings  `,
+    },
+    {
+      label: "Billing",
+      icon: <CreditCard className="h-4 w-4 mr-2" />,
+      href: `/organization/${organization.id}/billing  `,
     },
   ];
+
+  const;
   return (
     <AccordionItem value={organization.id} className="border-none">
       <AccordionTrigger
