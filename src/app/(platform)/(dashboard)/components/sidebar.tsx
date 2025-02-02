@@ -17,6 +17,7 @@ const SideBar = ({ storageKey = "t-sidebar-state" }: SideBarProps) => {
 
   const { organization: activeOrganization, isLoaded: isLoadedOrg } = useOrganization();
   const { userMemberships, isLoaded: isLoadedOrgList } = useOrganizationList({ userMemberships: { infinite: true } });
+
   const defaultAccordionValue: string[] = Object.keys(expanded).reduce((acc: string[], key: string) => {
     if (expanded[key]) {
       acc.push(key);
@@ -29,19 +30,11 @@ const SideBar = ({ storageKey = "t-sidebar-state" }: SideBarProps) => {
       ...curr,
       [id]: !expanded[id],
     }));
-
-    if (!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading) {
-      return (
-        <>
-          <Skeleton />
-        </>
-      );
-    }
   };
 
   return (
     <div className="flex flex-col font-medium text-xs mb-1">
-      <span style={{ position: "relative", top: "20px" }} className="pl-3  ">
+      <span className="pl-3" style={{ position: "relative", top: "20px" }}>
         WorkSpaces
       </span>
       <Button asChild type="button" size="icon" variant="ghost" className="ml-auto">
@@ -49,17 +42,26 @@ const SideBar = ({ storageKey = "t-sidebar-state" }: SideBarProps) => {
           <Plus className="h-4 w-4 mb-2" />
         </Link>
       </Button>
-      <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
-        {userMemberships.data?.map(({ organization }) => (
-          <NavItem
-            key={organization.id}
-            isActive={activeOrganization?.id === organization.id}
-            isExpanded={expanded[organization.id]}
-            organization={organization as Organization}
-            onExpand={onExpand}
-          />
-        ))}
-      </Accordion>
+
+      {/* Показываем Skeleton при загрузке */}
+      {!isLoadedOrg || !isLoadedOrgList || userMemberships.isLoading ? (
+        <div className="flex items-center justify-between mb-2">
+          <Skeleton className="h-10 w-[50%]" />
+          <Skeleton className="h-10 w-10" />
+        </div>
+      ) : (
+        <Accordion type="multiple" defaultValue={defaultAccordionValue} className="space-y-2">
+          {userMemberships.data?.map(({ organization }) => (
+            <NavItem
+              key={organization.id}
+              isActive={activeOrganization?.id === organization.id}
+              isExpanded={expanded[organization.id]}
+              organization={organization as Organization}
+              onExpand={onExpand}
+            />
+          ))}
+        </Accordion>
+      )}
     </div>
   );
 };

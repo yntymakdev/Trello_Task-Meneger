@@ -1,6 +1,7 @@
 "use client";
 import { Button } from "@/app/shared/components/styles/ui/Button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 import { Activity, CreditCard, CreditCardIcon, Layout, Settings } from "lucide-react";
 import Image from "next/image";
@@ -85,6 +86,16 @@ const NavItem = ({ isExpanded, isActive, organization, onExpand }: NavItemProps)
         ))}
       </AccordionContent>
     </AccordionItem>
+  );
+};
+
+NavItem.Skeleton = function SkeletonNavItem() {
+  return (
+    <div className="flex items-center gap-x-2">
+      <div className="w-10 h-10 relative shrink-0">
+        <Skeleton className="h-full w-full absolute" />
+      </div>
+    </div>
   );
 };
 
