@@ -3,7 +3,7 @@ import { Button } from "@/app/shared/components/styles/ui/Button";
 import { db } from '@/lib/db';
 import { create } from "../../../../../../action/create-board/create-board"; // убедитесь, что create — это правильный путь
 
-const OrganizationIdPage = async () => {
+const OrganizationIdPage = () => {
     // const boards = await db.board.findMany();
     //
     // const handleSubmit = async (event: React.FormEvent) => {
