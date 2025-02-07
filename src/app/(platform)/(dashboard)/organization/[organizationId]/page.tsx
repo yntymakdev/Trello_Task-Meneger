@@ -1,7 +1,7 @@
 import { Button } from "@/app/shared/components/styles/ui/Button";
 import  {db} from '@/lib/db'
 import {create} from "@/actions/create-board";
-const OrganizationId = async () => {
+const OrganizationIdPage = async () => {
   const board = await db.board.findMany();
 
   return (
@@ -20,4 +20,4 @@ const OrganizationId = async () => {
   );
 };
 
-export default OrganizationId;
+export default OrganizationIdPage;
