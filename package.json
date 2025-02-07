@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/backend": "^1.23.11",
     "@clerk/nextjs": "^6.10.6",
     "@prisma/client": "^6.3.0",
     "@radix-ui/react-accordion": "^1.2.2",
@@ -23,9 +24,12 @@
     "react": "^18",
     "react-dom": "^18",
     "sass": "^1.83.4",
+    "snake-case": "^3.0.4",
+    "snakecase-keys": "^8.0.1",
     "tailwind-merge": "^3.0.1",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.1.0",
+    "webpack": "^5.97.1",
     "zod": "^3.24.1",
     "zustand": "^5.0.3"
   },

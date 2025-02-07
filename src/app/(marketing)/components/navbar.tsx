@@ -10,12 +10,11 @@ const Navbar = () => {
         <Logo />
         <div className="space-x-4 md:flex md:space-x-2">
           {" "}
-          {/* Уменьшили пространство между кнопками на десктопе */}
           <Button className="sm" variant="outline" asChild>
-            <Link href="/sing-in">Войти</Link>
+            <Link href="/sign-in">Войти</Link>
           </Button>
           <Button className="sm" variant="outline" asChild>
-            <Link href="/sing-up">Регистрация</Link>
+            <Link href="/sign-up">Регистрация</Link>
           </Button>
         </div>
       </div>
