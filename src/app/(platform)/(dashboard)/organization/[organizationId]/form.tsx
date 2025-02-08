@@ -12,9 +12,9 @@ export default function Form() {
         <div>
             <form action={dispatch}>
                 <div className='flex flex-col space-y-2'>
-                   <FromInput/>
-                   <FormButton/>
+                   <FromInput errors={state?.errors}/>
                 </div>
+                   <FormButton/>
             </form>
         </div>
     );

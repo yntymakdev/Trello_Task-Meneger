@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 
 interface FormInputProps {
     errors?: {
-        title?: string;
+        title?: string[];
     };
 }
 
@@ -20,9 +20,9 @@ const FromInput: React.FC<FormInputProps> = ({ errors }) => {
                 placeholder="Enter a board title"
                 disabled={pending}
             />
-            {errors?.title && (
-                <p className="text-rose-500">{errors.title}</p>
-            )}
+            {errors?.title.map((error: string) => (
+                <p key={error} className="text-rose-500">{error}</p>
+            ))}
         </div>
     );
 };
