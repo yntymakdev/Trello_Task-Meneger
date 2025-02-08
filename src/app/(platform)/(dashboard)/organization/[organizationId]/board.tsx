@@ -1,4 +1,5 @@
 import React from 'react';
+import {Button} from "@/app/shared/components/styles/ui/Button";
 interface BoardProps {
     title: string;
     id: string
@@ -6,10 +7,15 @@ interface BoardProps {
 }
 const DeleteBoard = ({title,id}:BoardProps) => {
     return (
-        <div>
-            Board title: {title}
-          
-        </div>
+        <form className='flex items-center gap-x-2'>
+<p>
+    Board title: {title}
+</p>
+            <Button variant='destructive' size='sm'>
+                Delete
+            </Button>
+
+        </form>
     );
 };
 
