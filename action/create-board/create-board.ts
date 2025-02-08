@@ -8,11 +8,11 @@ const CreateBoard = z.object({
 
 export async function create(formData: FormData) {
     const { title } = CreateBoard.parse({
-     title: formData.get("title");
-    })
-    await db.board.create({
-        data: {
-            title,
-        },
-    });
+     title: formData.get("title"),
+})
+await db.board.create({
+    data: {
+        title,
+    },
+});
 }
