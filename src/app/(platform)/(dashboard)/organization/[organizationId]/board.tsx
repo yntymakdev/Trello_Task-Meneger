@@ -11,7 +11,7 @@ const DeleteBoard = ({title,id}:BoardProps) => {
 <p>
     Board title: {title}
 </p>
-            <Button variant='destructive' size='sm'>
+            <Button typeof='submit' variant='destructive' size='sm'>
                 Delete
             </Button>
 
