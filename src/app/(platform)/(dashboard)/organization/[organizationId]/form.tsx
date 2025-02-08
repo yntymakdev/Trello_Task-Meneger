@@ -1,12 +1,12 @@
 'use client'
 import { create } from "../../../../../../action/create-board/create-board";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import FormButton from "@/app/(platform)/(dashboard)/organization/[organizationId]/FormButton";
 import FromInput from "@/app/(platform)/(dashboard)/organization/[organizationId]/FromInput";
 
 export default function Form() {
-    const initialState = { message: null, errors: {} };
-    const [state, dispatch] = useFormState(create, initialState);
+    const initialState = { message: '', errors: {} };
+    const [state, dispatch] = useActionState(create, initialState);
 
     return (
         <div>

@@ -8,7 +8,7 @@ interface FormInputProps {
     };
 }
 
-const FromInput: React.FC<FormInputProps> = ({ errors }: FormInputProps) => {
+export  const  FromInput = ({ errors }: FormInputProps) => {
     const { pending } = useFormStatus();
 
     return (

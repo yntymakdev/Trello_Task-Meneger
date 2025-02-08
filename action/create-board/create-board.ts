@@ -8,7 +8,7 @@ export type State = {
     errors?: {
         title?: string[];
     };
-    message?: string;
+    message?: string | null;
 };
 
 const CreateBoard = z.object({
