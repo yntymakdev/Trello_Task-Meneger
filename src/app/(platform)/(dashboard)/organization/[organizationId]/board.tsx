@@ -1,18 +1,16 @@
-
-import { db } from "@/lib/db";
-import { revalidatePath } from "next/cache";
-
+import React from 'react';
 interface BoardProps {
-  title: string;
-  id: string;
-}
+    title: string;
+    id: string
 
-export async function deleteBoard(id: string) {
-  await db.board.delete({
-    where: {
-      id,
-    },
-  });
-
-  revalidatePath("organization  ");
 }
+const DeleteBoard = ({title,id}:BoardProps) => {
+    return (
+        <div>
+            Board title: {title}
+          
+        </div>
+    );
+};
+
+export default DeleteBoard;

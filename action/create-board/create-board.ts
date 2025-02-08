@@ -1,6 +1,7 @@
 'use server'
 import { db } from "@/lib/db";
 import { z } from "zod";
+import {revalidatePath} from "next/cache";
 
 const CreateBoard = z.object({
     title: z.string(),
@@ -15,4 +16,5 @@ await db.board.create({
         title,
     },
 });
+    revalidatePath('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er')
 }
