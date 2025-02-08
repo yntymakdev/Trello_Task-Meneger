@@ -1,23 +1,24 @@
-'use client'
+
 import { Button } from "@/app/shared/components/styles/ui/Button";
 import { db } from '@/lib/db';
 import { create } from "../../../../../../action/create-board/create-board"; // убедитесь, что create — это правильный путь
 
-const OrganizationIdPage = () => {
+const OrganizationIdPage = async () => {
     const boards = await db.board.findMany();
 
-    const handleSubmit = async (event: React.FormEvent) => {
-        event.preventDefault();
-
-        const formData = new FormData(event.target as HTMLFormElement);
-        const title = formData.get('title') as string;
-
-        await create({ title });
-    };
+    // const handleSubmit = async (event: React.FormEvent) => {
+    //     event.preventDefau lt();
+    //
+    //     const formData = new FormData(event.target as HTMLFormElement);
+    //     const title = formData.get('title') as string;
+    //
+    //     await create({ title });
+    // };
 
     return (
         <>
-            <div className="flex flex-col space-y-4"></div>
+            <div className="flex flex-col space-y-4">
+
             <form action={create}>
                 <input
                     id="title"
@@ -33,6 +34,7 @@ const OrganizationIdPage = () => {
                 {boards.map((board) => (
                     <div key={board.id}>Board name: {board.title}</div>
                 ))}
+            </div>
             </div>
         </>
     );
