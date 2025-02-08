@@ -1,8 +1,6 @@
-
-import { Button } from "@/app/shared/components/styles/ui/Button";
 import { db } from '@/lib/db';
-import { create } from "../../../../../../action/create-board/create-board";
-import Board from "@/app/(platform)/(dashboard)/organization/[organizationId]/board"; // убедитесь, что create — это правильный путь
+import Board from "@/app/(platform)/(dashboard)/organization/[organizationId]/board";
+import Form from "@/app/(platform)/(dashboard)/organization/[organizationId]/form"; // убедитесь, что create — это правильный путь
 
 const OrganizationIdPage = async () => {
     const boards = await db.board.findMany();
@@ -16,21 +14,11 @@ const OrganizationIdPage = async () => {
     //     await create({ title });
     // };
 
+    // @ts-ignore
     return (
         <>
             <div className="flex flex-col space-y-4">
-
-            <form action={create}>
-                <input
-                    id="title"
-                    name="title"
-                    required
-                    placeholder="Enter a board title"
-                    className="border-black border p-1"
-                />
-                <Button>Добавить</Button>
-            </form>
-
+            <Form/>
             <div className="space-y-2">
                 {boards.map((board) => (
                 <Board key={board.id} title={board.title} id={board.id} />

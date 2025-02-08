@@ -1,6 +1,7 @@
 import React from 'react';
 import {Button} from "@/app/shared/components/styles/ui/Button";
 import {deleteBoard} from "../../../../../../action/create-board/delete-board";
+import FormDelete from "@/app/(platform)/(dashboard)/organization/[organizationId]/FormDelete";
 interface BoardProps {
     title: string;
     id: string
@@ -14,9 +15,7 @@ const DeleteBoard = ({title,id}:BoardProps) => {
 <p>
     Board title: {title}
 </p>
-            <Button typeof='submit' variant='destructive' size='sm'>
-                Delete
-            </Button>
+          <FormDelete/>
 
         </form>
     );
