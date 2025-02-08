@@ -2,6 +2,7 @@
 import { create } from "../../../../../../action/create-board/create-board";
 import { Button } from "@/app/shared/components/styles/ui/Button";
 import { useFormState } from "react-dom";
+import {FormInput} from "lucide-react";
 
 export default function Form() {
     const initialState = { message: null, errors: {} };
@@ -11,16 +12,7 @@ export default function Form() {
         <div>
             <form action={dispatch}>
                 <div className='flex flex-col space-y-2'>
-                    <input
-                        id="title"
-                        name="title"
-                        required
-                        placeholder="Enter a board title"
-                        className="border-black border p-1"
-                    />
-                    {state?.errors?.title && (
-                        <p className="text-rose-500">{state.errors.title}</p>
-                    )}
+                   <FormInput/>
                     <Button>Добавить</Button>
                 </div>
             </form>
