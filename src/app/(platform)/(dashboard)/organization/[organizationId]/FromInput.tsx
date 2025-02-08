@@ -1,3 +1,6 @@
+'use client'
+import {useFormStatus} from 'react-dom'
+import {Input} from "@/components/ui/input";
 interface FormInput{
 errors?:{
     title?:string[]
@@ -5,14 +8,15 @@ errors?:{
 
 }
 export default function FromInput ({errors}: FormInput)  {
+    const {pending} = useFormStatus()
   return (
     <div>
-      <input
+      <Input
           id="title"
           name="title"
           required
           placeholder="Enter a board title"
-          className="border-black border p-1"
+              disabled={pending}
       />
         {errors?.title && (
             <p className="text-rose-500">{errors.title}</p>
