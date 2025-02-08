@@ -2,6 +2,7 @@
 import { db } from "@/lib/db";
 import { z } from "zod";
 import {revalidatePath} from "next/cache";
+import {redirect} from "next/navigation";
 
 export type  State = {
 
@@ -36,7 +37,9 @@ export async function create(prevState:State, formData: FormData) {
         })
     }
     catch(error){
-        ``
+        return{
+        message: "Database Error",
+        }
 
     }
 
@@ -47,4 +50,6 @@ await db.board.create({
     },
 });
     revalidatePath('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er')
+    redirect("/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er")
+
 }
