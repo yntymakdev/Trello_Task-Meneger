@@ -8,7 +8,7 @@ export type State = {
     errors?: {
         title?: string[];
     };
-    message?: string | null;
+    message?: string;
 };
 
 const CreateBoard = z.object({
@@ -24,10 +24,11 @@ export async function create(prevState: State, formData: FormData) {
 
     if (!validatedFields.success) {
         return {
-                errors: validatedFields.error.flatten().fieldErrors,
+            errors: validatedFields.error.flatten().fieldErrors,
             message: "Invalid field"
-            }
+        };
     }
+
     const { title } = validatedFields.data;
 
     try {
@@ -36,11 +37,12 @@ export async function create(prevState: State, formData: FormData) {
                 title,
             },
         });
-    } catch (error) {
+    }catch (e) {
         return {
-            message: "Database error",
-        };
+            message: "error db"
+        }
     }
-    revalidatePath('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er');
-    redirect('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er')
+
+        revalidatePath('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er');
+        redirect('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er');
 }

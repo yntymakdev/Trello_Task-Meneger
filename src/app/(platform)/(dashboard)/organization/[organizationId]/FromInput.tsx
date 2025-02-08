@@ -7,7 +7,7 @@ errors?:{
 }
 
 }
-export default function FromInput ({errors}: FormInput)  {
+export  const FromInput ({errors}: FormInput) => {
     const {pending} = useFormStatus()
   return (
     <div>
@@ -25,5 +25,6 @@ export default function FromInput ({errors}: FormInput)  {
     </div>
   );
 };
+export default  FromInput
 
 
