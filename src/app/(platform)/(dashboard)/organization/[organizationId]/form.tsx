@@ -3,6 +3,10 @@ import {create} from "../../../../../../action/create-board/create-board";
 import {Button} from "@/app/shared/components/styles/ui/Button";
 
 export default function form ()  {
+
+    const initialState = {message:null,error:{}};
+    const [state,dispatch] = useFormState(create,initialState);
+
   return (
     <div>
 
