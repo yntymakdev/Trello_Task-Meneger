@@ -1,28 +1,21 @@
 'use client'
-import {create} from "../../../../../../action/create-board/create-board";
-import {Button} from "@/app/shared/components/styles/ui/Button";
-import  {useFormState } from "react-dom"
-export default function form ()  {
+import { create } from "../../../../../../action/create-board/create-board";
+import { Button } from "@/app/shared/components/styles/ui/Button";
+import { useFormState } from "react-dom";
+import {FormInput} from "lucide-react";
 
-    const initialState = {message:null,error:{}};
-    const [state,dispatch] = useFormState(create,initialState);
+export default function Form() {
+    const initialState = { message: null, errors: {} };
+    const [state, dispatch] = useFormState(create, initialState);
 
-  return (
-    <div>
-
-      <form action={dispatch}>
-        <input
-            id="title"
-            name="title"
-            required
-            placeholder="Enter a board title"
-            className="border-black border p-1"
-        />
-        <Button>Добавить</Button>
-      </form>
-  
-    </div>
-  );
-};
-
-
+    return (
+        <div>
+            <form action={dispatch}>
+                <div className='flex flex-col space-y-2'>
+                   <FormInput/>
+                    <Button>Добавить</Button>
+                </div>
+            </form>
+        </div>
+    );
+}
