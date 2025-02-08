@@ -6,7 +6,7 @@ import { redirect } from "next/navigation";
 
 export type State = {
     errors?: {
-        title?: string;
+        title?: string[];
     };
     message?: string | null;
 };
@@ -41,8 +41,6 @@ export async function create(prevState: State, formData: FormData) {
             message: "Database error",
         };
     }
-
     revalidatePath('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er');
     redirect('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er')
-
 }
