@@ -16,6 +16,7 @@ const OrganizationIdPage = async () => {
     //     await create({ title });
     // };
 
+    // @ts-ignore
     return (
         <>
             <div className="flex flex-col space-y-4">

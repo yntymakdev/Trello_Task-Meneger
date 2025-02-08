@@ -17,18 +17,32 @@ const CreateBoard = z.object({
     }),
 });
 
-export async function create(prevState: State, formData: FormData)  {
+export async function create(prevState: State, formData: FormData) {
     const validatedFields = CreateBoard.safeParse({
         title: formData.get("title"),
     });
 
-    if(!validatedFields){
-
-
-await  db.board.create({
-    data:{
-        title
+    if (!validatedFields.success) {
+        return {
+                errors: validatedFields.error.flatten().fieldErrors,
+            message: "Invalid field"
+            }
     }
-})
+    const { title } = validatedFields.data;
+
+    try {
+        await db.board.create({
+            data: {
+                title,
+            },
+        });
+    } catch (error) {
+        return {
+            message: "Database error",
+        };
     }
+
+    revalidatePath('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er');
+    redirect('/organization/org_2sTYvRxYpztHhF6Wo3dOPfIf0er')
+
 }

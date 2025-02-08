@@ -1,8 +1,8 @@
 'use client'
 import { create } from "../../../../../../action/create-board/create-board";
-import { Button } from "@/app/shared/components/styles/ui/Button";
 import { useFormState } from "react-dom";
 import {FormInput} from "lucide-react";
+import FormButton from "@/app/(platform)/(dashboard)/organization/[organizationId]/FormButton";
 
 export default function Form() {
     const initialState = { message: null, errors: {} };
@@ -13,7 +13,7 @@ export default function Form() {
             <form action={dispatch}>
                 <div className='flex flex-col space-y-2'>
                    <FormInput/>
-                    <Button>Добавить</Button>
+                   <FormButton/>
                 </div>
             </form>
         </div>
