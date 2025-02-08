@@ -1,7 +1,7 @@
 'use client'
 import {create} from "../../../../../../action/create-board/create-board";
 import {Button} from "@/app/shared/components/styles/ui/Button";
-
+import  {useFormState } from "react-dom"
 export default function form ()  {
 
     const initialState = {message:null,error:{}};
@@ -10,7 +10,7 @@ export default function form ()  {
   return (
     <div>
 
-      <form action={create}>
+      <form action={dispatch}>
         <input
             id="title"
             name="title"
