@@ -8,7 +8,7 @@ interface FormInputProps {
     };
 }
 
-const FromInput: React.FC<FormInputProps> = ({ errors }) => {
+const FromInput: React.FC<FormInputProps> = ({ errors }: FormInputProps) => {
     const { pending } = useFormStatus();
 
     return (
@@ -20,7 +20,7 @@ const FromInput: React.FC<FormInputProps> = ({ errors }) => {
                 placeholder="Enter a board title"
                 disabled={pending}
             />
-            {errors?.title.map((error: string) => (
+            {errors?.title?.map((error: string) => (
                 <p key={error} className="text-rose-500">{error}</p>
             ))}
         </div>
